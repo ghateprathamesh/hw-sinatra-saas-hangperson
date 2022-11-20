@@ -1,9 +1,9 @@
 class WordGuesserGame
 
-
   # Required class methods and attributes are added
 
   # Random word
+
 
   attr_accessor :word
   attr_accessor :guesses
@@ -15,7 +15,7 @@ class WordGuesserGame
   end
 
   def guess (word)
-    if ! ((word =~ /[a-zA-Z]/) == 0 && word.length == 1)
+    if not ((word =~ /[a-zA-Z]/) == 0 and word.length == 1)
       raise ArgumentError, 'The input must be a letter'
     end
     right_word = @word.downcase
@@ -33,7 +33,7 @@ class WordGuesserGame
     return true
   end
 
-  def word_with_the_guess
+  def word_with_guesses
     display = ''
     @word.each_char do |letter|
       unless @guesses.include?letter
@@ -45,7 +45,7 @@ class WordGuesserGame
     return display
   end
 
-  def check_for_win_or_lose
+  def check_win_or_lose
     if @wrong_guesses.length >= 7
       return :lose
     end
